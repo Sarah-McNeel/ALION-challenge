@@ -3,16 +3,20 @@ import string
 
 from pprint import pprint
 
-# a dictionary file on a typical Linux system:
-handle = open('/etc/dictionaries-common/words')
+# a common dictionary file on a typical Linux system use:
+#handle = open('/etc/dictionaries-common/words')
+
+# a common dictionary on a typical Mac OS use:
+handle = open('/usr/share/dict/words')
+
 words = handle.readlines()
 handle.close
 
-words = [random.choice(words).upper()replace("'", '').strip()
-         for_in range(5)]
-grid size = 20
+words = [random.choice(words).upper().replace("'", '').strip()
+         for _ in range(5)]
+grid_size = 20
 
-grid = [['_'for_in range(grid_size)] for_in range(grid_size)]
+grid = [['_'for _ in range(grid_size)] for _ in range(grid_size)]
 
 
 def print_grid():
@@ -59,21 +63,21 @@ for word in words:
             new_position_x = x_position + i * step_x
             new_position_y = y_position + i * step_y
             character_at_new_position = grid[new_position_x][new_position_y]
-            if character_at_new_position = !='_':
-                if character_at_new_position = character:
-                continue
-            else:
-                failed = True
+            if character_at_new_position != '_':
+                if character_at_new_position == character:
+                    continue
+                else:
+                    failed = True
                 break
-            if failed:
-                continue
-            else:
-                for i in range(word_length):
-                    character = word[i]
-                new_position_x = x_position + i*step_x
-                new_position_y = y_position + i*step_y
-                grid[new_position_x][new_position_y] = character
-                placed = True
+    if failed:
+        continue
+    else:
+        for i in range(word_length):
+            character = word[i]
+            new_position_x = x_position + i*step_x
+            new_position_y = y_position + i*step_y
+            grid[new_position_x][new_position_y] = character
+            placed = True
 
 for x in range(grid_size):
     for y in range(grid_size):
