@@ -57,7 +57,7 @@ for word in words:
         failed = False
 # the first for loop determines whether or not we can realistically place the word here
 # if every letter in the word has a free space on the grid (denoted by the underscorees), then we can use this setup
-# if it failsthat test, we continmue out of this for loop and continue on the bigger while loop ( choose a new orientation)
+# if it fails that test, we continmue out of this for loop and continue on the bigger while loop ( choose a new orientation)
         for i in range(word_length):
             character = word[i]
             new_position_x = x_position + i * step_x
